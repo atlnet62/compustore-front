@@ -1,13 +1,201 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: "Coiny";
+    src: url(./assets/fonts/Coiny.ttf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+
+}
+
+header {
+    display: flex;
+    background: #004f4a;
+    font-family: "Coiny", sans-serif;
+    padding: 1.6rem 1.6rem 1.6rem 0;
+}
+
+header h1 {
+    min-height: 5vh;
+    width: 100%;
+    text-align: right;
+    text-transform: uppercase;
+    color: #f0ffff;
+    font-size: 2.2rem;
+}
+
+header h1 span {
+    color:yellowgreen;
+}
+
+.menu {
+    top: 1.2rem;
+    width: 100%;
+    font-family: "calibri", sans-serif;
+    position: fixed;
+    z-index: 1000;
+}
+
+#burger {
+    display: none;
+}
+
+#logo-burger {
+    min-height: 5vh;
+    cursor: pointer;
+    width: 2rem;
+    display: block;
+    color: #f0ffff;
+    text-align: right;
+    padding: 0 1.6rem;
+    font-size: 2.9rem;
+}
+
+#logo-burger::before {
+    content: '☰';
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    background: #004f4a;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    transform: translateX(-100%);
+}
+
+#logo-burger, nav {
+    transition: 0.7s;
+}
+
+#burger:checked ~ nav {
+    width:100%;
+    transform: translate(0);
+}
+
+nav a {
+    color: #f0ffff;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 2rem;
+}
+
+nav a:hover {
+    background: #002421;
+    color:#9acd32;
+}
+
+main {
+    background-color: #caffc5;
+    min-height: 90vh;
+}
+
+h2 {
+    width: 100%;
+    font-family: "Coiny", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    text-shadow: 0 0 2px #0b3800;
+    color:#004f4a;
+}
+
+#home, #store, #entry, #dashboard, #store section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#home, #store {
+    align-content: flex-start;
+}
+
+#home p {
+    text-align: justify;
+    padding: 1rem;
+}
+
+#store section, #entry, #dashboard {
+    align-content: space-around;
+    justify-content: center;
+}
+
+#form-entry {
+    margin: auto;
+    max-width:30rem;
+    background-color: #004f4a;
+    color: #9acd32;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+#form-entry a {
+    color: #9acd32;
+}
+
+#form-entry input {
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0.5rem;
+    border-radius: 0rem;
+}
+
+#form-entry fieldset {
+    padding: 2rem;
+}
+
+#form-entry input {
+    border: 1px solid;
+    border-color: #313131;
+    box-shadow: 0 0 2px #313131;
+}
+
+#form-entry input:last-child:hover {
+    background-color: #9acd32;
+    color: #004f4a;
+}
+
+
+legend {
+    padding: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+footer {
+    min-height: 5vh;
+    position: fixed;
+    bottom: 0;
+    padding: 1rem;
+    background: #004f4a;
+    width: 100%;
+}
+
+footer p {
+    color: #f0ffff;
+    text-align: center;
+}
+
+#loading {
+    display: flex;
+    align-items: center;
+}
+
+.loading {
+    width: 100%;
+    height: auto;
 }

@@ -1,0 +1,32 @@
+.Card {
+    margin: 1rem;
+    background-color: #f0ffff;
+    border-radius: 1rem;
+    width: 20rem;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 0 5px #004f4a;
+    transform: scale(1);
+}
+
+.Card img {
+    width: 60%;
+    height: auto;
+}
+
+.Card h3:nth-child(2) {
+    color:#004f4a;
+    font-weight: bold;
+}
+
+.Card p:nth-child(3) {
+    font-weight: bold;
+    color: red;
+}
+.Card p:nth-child(3)::after {
+    content: ' €';
+}
+
+.Card:hover {
+    transform: scale(1.1);
+}
