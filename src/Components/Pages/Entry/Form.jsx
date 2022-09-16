@@ -9,7 +9,7 @@ function Form({ formType }) {
 
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({ email: "", password: ""});
-        const email = useRef();
+    const email = useRef();
 
     const [msg, setMsg] = useState(null);
 
@@ -26,18 +26,19 @@ function Form({ formType }) {
 
     const handleSignin = async () => {
 		const response = await signin(validate("signin", inputs));
-        console.log(`function handleSignin : ${response}`)
 		if(response.status === 404){
 			setMsg(response.data.msg);
 			return;
 		}
+        // refecto en tablea en fin de projet
 		localStorage.setItem("uat", response.data.token)
-		navigate("/entry/dashboard")
+        localStorage.setItem("uuid", response.data.uuid)
+		navigate("/")
     }
 
     const handleSignup = async () => {
         const inputsValidation = validate("signup", inputs);
-		if(inputsValidation === true){
+		if(inputsValidation === true) {
 			const response = await signup(inputs);
 			if (response.status === 409) {
 				setMsg(response.data.msg);
@@ -46,7 +47,6 @@ function Form({ formType }) {
 				navigate("/entry");
 			}
 		} else {
-            console.log(inputsValidation);
 			setMsg(inputsValidation);
 		}
     }
@@ -56,38 +56,41 @@ function Form({ formType }) {
     }, [])
 
     return (
-        <section id="form-entry">
-            <img src={logo} alt="logo" />
-            <form onSubmit={onSubmitHandler}>
-                <fieldset>
-                    <legend>{formType === "signin" ? "Signin" : "Signup" }</legend>
-                    
-                    <input
-                        ref={email}
-                        type="text"
-                        placeholder="E-mail ?"
-                        value={inputs.email}
-                        onChange={(e) =>
-                            setInputs({ ...inputs, email: e.target.value })
-                        }
-                    />
+        <main id="entry">
+            <h2>Sign form</h2>
+            <section id="form-entry">
+                <img src={logo} alt="logo" />
+                <form onSubmit={onSubmitHandler}>
+                    <fieldset>
+                        <legend>{formType === "signin" ? "Signin" : "Signup" }</legend>
+                        
+                        <input
+                            ref={email}
+                            type="text"
+                            placeholder="E-mail ?"
+                            value={inputs.email}
+                            onChange={(e) =>
+                                setInputs({ ...inputs, email: e.target.value })
+                            }
+                        />
 
-                    <input
-                        type="password"
-                        placeholder="Password ?"
-                        value={inputs.password}
-                        onChange={(e) =>
-                            setInputs({ ...inputs, password: e.target.value })
-                        }
-                    />
+                        <input
+                            type="password"
+                            placeholder="Password ?"
+                            value={inputs.password}
+                            onChange={(e) =>
+                                setInputs({ ...inputs, password: e.target.value })
+                            }
+                        />
 
-                    {msg && <p>{msg}</p>}
+                        {msg && <p>{msg}</p>}
 
-                    <input type="submit" value="Send"/>
-                </fieldset>
-            </form>
-            {formType === "signin" ? <p>Register ? <Link to={"/entry/signup"}>here</Link></p> : null}
-        </section>
+                        <input type="submit" value="Send"/>
+                    </fieldset>
+                </form>
+                {formType === "signin" ? <p>Register ? <Link to={"/entry/signup"}>here</Link></p> : null}
+            </section>
+        </main>
     );
 }
 

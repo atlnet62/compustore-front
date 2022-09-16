@@ -5,17 +5,13 @@ import Form from "./Form";
 function Entry() {
     const location = useLocation;
     return (
-        <main id="entry">
+        location().pathname !== "/entry" ?                 
+        <Outlet />
+        : 
+        <>
+            <Form formType={"signin"}/>
+        </>
 
-            {
-                location().pathname !== "/entry" ?                 
-                <Outlet />
-                : 
-                <>
-                    <Form formType={"signin"}/>
-                </>
-            }
-        </main>
     );
 }
 

@@ -15,73 +15,70 @@ html {
 
 body {
     font-size: 1.6rem;
+    background-color: #f0ffff;
+    
+}
 
+body, nav {
+    font-family: 'calibri', sans-serif;
 }
 
 header {
     display: flex;
+    width: 100%;
     background: #004f4a;
     font-family: "Coiny", sans-serif;
-    padding: 1.6rem 1.6rem 1.6rem 0;
+    position: fixed;
+    z-index: 100;
 }
 
 header h1 {
-    min-height: 5vh;
+    padding: 0.5rem;
     width: 100%;
     text-align: right;
     text-transform: uppercase;
     color: #f0ffff;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
 }
 
 header h1 span {
     color:yellowgreen;
 }
 
-.menu {
-    top: 1.2rem;
-    width: 100%;
-    font-family: "calibri", sans-serif;
-    position: fixed;
-    z-index: 1000;
+#menu-btn {
+    width: 5rem;
+    height: 4rem;
+    background-color: #004f4a;
+    color: #f0ffff;
+    font-weight: bold;
+    margin: 0.5rem;
+    font-size: 2.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #9acd32;
 }
 
-#burger {
+.menu-overlay {
+    background-color: #004f4abf;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: fixed;
+    z-index: 50;
+}
+
+.menu-off {
     display: none;
 }
 
-#logo-burger {
-    min-height: 5vh;
-    cursor: pointer;
-    width: 2rem;
-    display: block;
-    color: #f0ffff;
-    text-align: right;
-    padding: 0 1.6rem;
-    font-size: 2.9rem;
-}
-
-#logo-burger::before {
-    content: '☰';
-}
-
-nav {
+.menu-display {
     display: flex;
     flex-direction: column;
     background: #004f4a;
-    overflow: hidden;
+    margin-top: 5rem;
     text-align: center;
     width: 100%;
-    transform: translateX(-100%);
-}
-
-#logo-burger, nav {
-    transition: 0.7s;
-}
-
-#burger:checked ~ nav {
-    width:100%;
-    transform: translate(0);
+    position: fixed;
+    z-index: 100;
 }
 
 nav a {
@@ -97,8 +94,7 @@ nav a:hover {
 }
 
 main {
-    background-color: #caffc5;
-    min-height: 90vh;
+    padding: 5rem 0 10rem 0;
 }
 
 h2 {
@@ -111,13 +107,13 @@ h2 {
     color:#004f4a;
 }
 
-#home, #store, #entry, #dashboard, #store section {
+#home, #store, #entry, #profile, #store section, #product {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
-#home, #store {
+#home, #store, #entry, #profile, #product {
     align-content: flex-start;
 }
 
@@ -126,12 +122,12 @@ h2 {
     padding: 1rem;
 }
 
-#store section, #entry, #dashboard {
+#store section, #add-product {
     align-content: space-around;
     justify-content: center;
 }
 
-#form-entry {
+#form-entry, #add-product {
     margin: auto;
     max-width:30rem;
     background-color: #004f4a;
@@ -143,28 +139,25 @@ h2 {
     padding: 2rem;
 }
 
-#form-entry a {
+#form-entry a, #add-product a {
     color: #9acd32;
 }
 
-#form-entry input {
+#form-entry input, #add-product input {
     width: 100%;
     margin: 2rem 0;
     padding: 0.5rem;
     border-radius: 0rem;
-}
-
-#form-entry fieldset {
-    padding: 2rem;
-}
-
-#form-entry input {
     border: 1px solid;
     border-color: #313131;
     box-shadow: 0 0 2px #313131;
 }
 
-#form-entry input:last-child:hover {
+#form-entry fieldset, #add-product fieldset {
+    padding: 2rem;
+}
+
+#form-entry input:last-child:hover, #add-product input:last-child:hover {
     background-color: #9acd32;
     color: #004f4a;
 }
@@ -177,12 +170,12 @@ legend {
 }
 
 footer {
-    min-height: 5vh;
-    position: fixed;
+    width: 100%;
+    min-height: 5rem;
     bottom: 0;
     padding: 1rem;
     background: #004f4a;
-    width: 100%;
+    position: fixed;
 }
 
 footer p {
@@ -199,3 +192,89 @@ footer p {
     width: 100%;
     height: auto;
 }
+
+h3 {
+    color: #0b3800;
+    margin: 0 0 1rem 0;
+}
+
+#add-product h3 {
+    color: #9acd32;
+    margin: 0 0 1rem 0;
+}
+
+#account, #purchasing-order, #admin-panel, #cart section {
+    background-color: #ffffffd7;
+    box-shadow: 0 0 5px #002421;
+    padding : 1rem;
+    width: 60%;
+    margin: 1rem auto;
+    border-radius: 1rem;
+}
+
+#account table, #cart section table {
+    margin: auto;
+}
+
+#account table tr td, #cart section table tr td {
+    padding: 1rem 2rem;
+}
+
+
+.valid {
+    color: green;
+    font-weight: bold;
+}
+
+.unValid {
+    color: red;
+    font-weight: bold;
+}
+
+/*** GROUP ***/
+
+.isAdmin {
+    color: blue;
+    font-weight: bold;
+}
+
+.isModerator {
+    color: orangered;
+    font-weight: bold;
+}
+
+.isUser {
+    font-weight: bold;
+}
+
+@media screen and (min-width:768px) {
+    #menu-btn {
+        width: 15rem;
+        height: 4rem;
+    }
+
+    .menu-display {
+        width: 25%;
+    }
+}
+
+
+@media screen and (min-width:1280px) {
+
+    .menu-overlay {
+        display: none;
+    }
+    
+    .menu-display {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    main {
+        padding: 15rem 0 15rem 0;
+    }
+}
+
+
+

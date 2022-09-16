@@ -1,7 +1,7 @@
 import Card from "../UI/Card";
 
 function store({ products }) {
-    console.log(products)
+
     return (
         <main id="store">
             <h2>Products</h2>

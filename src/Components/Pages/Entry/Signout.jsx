@@ -8,9 +8,13 @@ function SignOut() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        // refecto en tablea en fin de projet
         localStorage.removeItem("uat");
+        localStorage.removeItem("uuid");
+        localStorage.removeItem("cart");
+
         dispatch(signout());
-        navigate("/");
+        navigate("/entry");
     }, []);
 
     return null;

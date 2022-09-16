@@ -9,7 +9,6 @@ const userSlice = createSlice({
     },
     reducers: {
         signin(state, action){
-            console.log(action)
             state.userInfos = action.payload;
             state.isLogged = true;
         },

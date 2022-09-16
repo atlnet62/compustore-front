@@ -4,11 +4,11 @@ const productSlice = createSlice({
 
     name: "product",
     initialState: {
-        list: [],
+        productList: [],
     },
     reducers: {
         loadProducts(state, action){
-            state.list = [...action.payload];
+            state.productList = [...action.payload];
         },
     },
 

@@ -1,0 +1,40 @@
+.btn {
+    background-color: #9acd32;
+    border: 0.1rem solid #95ce24;
+    color:  #002421;
+    border-radius: 5rem;
+    padding: 0.5rem 1rem;
+    margin: 2rem 1rem;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #002421;
+}
+
+.btnDel {
+    color: #cd3232;
+    background-color: white;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 0;
+    font-size: 2rem;
+}
+
+.btnEdit {
+    color: #323ccd;
+    background-color: white;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 0;
+    font-size: 2rem;
+}
+
+.btnAdd {
+    color: #004f4a;
+    background-color: white;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 0;
+    font-size: 3rem;
+}
