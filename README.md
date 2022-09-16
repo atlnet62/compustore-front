@@ -9,7 +9,7 @@
 
 Contexte : 
 - home : page d'accueil avec texte
-- store : visiteur peuvent voir le store mais si clic sur les bouteon un message d'auth s'affiche
+- store : visiteur peuvent voir le store mais si clique sur les boutons, un message d'auth s'affiche
 - profile : l'utilisateur peut changer le contenu en cliquant sur modifier et doit etre identifier pour le faire
 - admin panel :
   - permet la modification, l'ajout et la supression d'un article ou categorie ou utilisateur
