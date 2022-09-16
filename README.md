@@ -1,13 +1,8 @@
-## Compu'Store Front
-![signin/signup](screenshot.png) 
-![store](screenshot2.png) 
-![profile](screenshot3.png) 
-![admin panel](screenshot4.png) 
-![facture 1](screenshot5.png) 
-![facture 2](screenshot6.png) 
+## Acces back
+https://github.com/atlnet62/compustore
 
 
-Contexte : 
+## Contexte : 
 - home : page d'accueil avec texte
 - store : visiteur peuvent voir le store mais si clique sur les boutons, un message d'auth s'affiche
 - profile : l'utilisateur peut changer le contenu en cliquant sur modifier et doit etre identifier pour le faire
@@ -22,7 +17,28 @@ Contexte :
 et une fois terminé : Refacto des codes + CSS.
 
 
-### TO DO
+## Done :
+
+back :
+- toutes les routes disponibles :
+  - admin
+  - user (list, add, edit suppr en admin)
+  - produits (list, add, edit suppr en admin)
+  - category (list, add, edit suppr en admin)
+  - role (list, add, edit suppr en admin)
+
+
+front :
+- liste des produits dans le store
+- page home
+- page profile
+- page admin > ajout produit (uniquement)
+- page register
+- page signin / signout
+- page cart
+
+
+## TO DO
 
 back:(90% terminé)
 - mail de validation de compte + mdp oublié.
@@ -48,3 +64,12 @@ et en toute fin :
 - Refacto le code
 
 (bilan autocritique : MP)
+
+
+## Compu'Store Front
+![signin/signup](screenshot.png) 
+![store](screenshot2.png) 
+![profile](screenshot3.png) 
+![admin panel](screenshot4.png) 
+![facture 1](screenshot5.png) 
+![facture 2](screenshot6.png) 
