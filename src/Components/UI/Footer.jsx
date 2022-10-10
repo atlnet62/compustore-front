@@ -1,9 +1,9 @@
-import React from 'react'
-
 function Footer() {
-  return (
-    <footer><p>2022@2lsoft.fr</p></footer>
-  )
+    return (
+        <footer>
+            <p>2022@2lsoft.fr</p>
+        </footer>
+    );
 }
 
 export default Footer;

@@ -4,14 +4,12 @@ import Form from "./Form";
 
 function Entry() {
     const location = useLocation;
-    return (
-        location().pathname !== "/entry" ?                 
+    return location().pathname !== "/entry" ? (
         <Outlet />
-        : 
+    ) : (
         <>
-            <Form formType={"signin"}/>
+            <Form formType={"signin"} />
         </>
-
     );
 }
 

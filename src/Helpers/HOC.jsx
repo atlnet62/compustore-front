@@ -7,19 +7,27 @@ import Loading from "../Components/UI/Elements/Loading";
 
 import { checkToken } from "../services/API/user.js";
 import { getProducts } from "../services/API/products.js";
-import { getCategories} from "../services/API/category.js";
+import { getCategories } from "../services/API/category.js";
 
 import { loadProducts } from "../store/slices/product.slice";
-import { signin, signout } from '../store/slices/user.slice';
+import { signin, signout } from "../store/slices/user.slice";
 import { loadCategories } from "../store/slices/category.slice";
 
 function HOC({ child, isAuthRequired, formType }) {
     const navigate = useNavigate();
 
+    const Child = child;
     const [fetchError, setFetchError] = useState(false);
 
     const dispatch = useDispatch();
-    const { productList, categoryList, userInfos, isLogged } = useSelector((state) => ({ ...state.products, ...state.categories, ...state.user }));
+    const { productList, cart, totalPrice, categoryList, userInfos, isLogged } =
+        useSelector((state) => ({
+            ...state.products,
+            ...state.cart,
+            ...state.totalPrice,
+            ...state.categories,
+            ...state.user,
+        }));
 
     useEffect(() => {
         if (!categoryList.length) {
@@ -32,9 +40,9 @@ function HOC({ child, isAuthRequired, formType }) {
                 dispatch(loadCategories(response.data.categories));
             }
             fetchData();
-        } 
+        }
+        // eslint-disable-next-line
     }, []);
-
 
     useEffect(() => {
         if (!productList.length) {
@@ -47,32 +55,32 @@ function HOC({ child, isAuthRequired, formType }) {
                 dispatch(loadProducts(response.data.products));
             }
             fetchData();
-        } 
+        }
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
-        async function checkAuth(){
+        async function checkAuth() {
             const TOKEN = localStorage.getItem("uat");
 
-            if(isAuthRequired && !TOKEN){
+            if (isAuthRequired && !TOKEN) {
                 dispatch(signout());
                 navigate("/");
             }
 
-            if(!isLogged) {
-                if(isAuthRequired) navigate("/");
-                if(TOKEN !== null){
+            if (!isLogged) {
+                if (isAuthRequired) navigate("/");
+                if (TOKEN !== null) {
                     const response = await checkToken(TOKEN);
-                    if(response.status === 200){
+                    if (response.status === 200) {
                         dispatch(signin(response.data.result));
                     }
                 }
             }
         }
         checkAuth();
-    },[])
-
-    const Child = child;
+        // eslint-disable-next-line
+    }, []);
 
     if (fetchError) {
         return <Error />;
@@ -83,7 +91,14 @@ function HOC({ child, isAuthRequired, formType }) {
             {!productList.length || !categoryList.length ? (
                 <Loading />
             ) : (
-                    <Child categories={categoryList} products={productList} userInfos={userInfos} formType={formType} />
+                <Child
+                    categories={categoryList}
+                    products={productList}
+                    cart={cart}
+                    totalPrice={totalPrice}
+                    userInfos={userInfos}
+                    formType={formType}
+                />
             )}
         </>
     );

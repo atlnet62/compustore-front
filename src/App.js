@@ -2,11 +2,10 @@ import Footer from "./Components/UI/Footer";
 import Header from "./Components/UI/Header";
 import Router from "./Router/Index.routes";
 
-
 function App() {
     return (
         <>
-            <Header /> 
+            <Header />
             <Router />
             <Footer />
         </>
@@ -14,3 +13,4 @@ function App() {
 }
 
 export default App;
+

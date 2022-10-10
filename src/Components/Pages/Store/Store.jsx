@@ -1,19 +1,16 @@
-import Card from "../UI/Card";
+import Card from "../../UI/Card";
 
 function store({ products }) {
-
     return (
         <main id="store">
             <h2>Products</h2>
             <section>
                 {products.map((product) => {
-                    return (
-                        <Card key={product.productID} {...product} />
-                    );
+                    return <Card key={product.productID} {...product} />;
                 })}
             </section>
         </main>
-    )
+    );
 }
 
-export default store
+export default store;

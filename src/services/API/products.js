@@ -1,31 +1,26 @@
-import axios from 'axios';
-import formData from 'form-data'
-
+import axios from "axios";
 
 export const getProducts = async () => {
     try {
-        return await axios.get('api/v1/product/all');
+        return await axios.get("/api/v1/product/all");
     } catch (error) {
         return error;
     }
-}
+};
 
-export const addProducts = async (datas) => {
+export const addProducts = async (product, TOKEN) => {
     try {
-        return await axios.post("/api/v1/product/add", datas);
+        return await axios.post("/api/v1/product/add", product, { headers : {"x-access-token": TOKEN}});
     } catch (error) {
         return error.response;
     }
-}
+};
 
-export const addImage = async (datas) => {
-    
-    console.log(datas);
-    formData.append(datas);
+export const addImage = async (image, TOKEN) => {
 
     try {
-        return await axios.post("/api/v1/product/Image/add", FormData, datas);
+        return await axios.post("/api/v1/product/Image/add", image, { headers : {"x-access-token": TOKEN}});
     } catch (error) {
         return error.response;
     }
-}
+};

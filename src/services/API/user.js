@@ -1,12 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const checkToken = async (token) => {
     try {
-        return await axios.get("/api/v1/user/checkToken", { headers : {"x-access-token": token}})
+        return await axios.get("/api/v1/user/checkToken", {
+            headers: { "x-access-token": token },
+        });
     } catch (error) {
         return error.response;
     }
-}
+};
 
 export const signup = async (datas) => {
     try {
@@ -14,7 +16,7 @@ export const signup = async (datas) => {
     } catch (error) {
         return error.response;
     }
-}
+};
 
 export const signin = async (datas) => {
     try {
@@ -22,4 +24,14 @@ export const signin = async (datas) => {
     } catch (error) {
         return error.response;
     }
+};
+
+export const validateAccount = async (datas) => {
+    try {
+        return await axios.patch(`/api/v1/user/validateAccount/${datas.uuid}`, {datas});
+    } catch (error) {
+        return error.response
+    }
 }
+
+

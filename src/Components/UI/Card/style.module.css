@@ -15,7 +15,7 @@
 }
 
 .Card h3:nth-child(2) {
-    color:#004f4a;
+    color: #004f4a;
     font-weight: bold;
 }
 
@@ -24,7 +24,7 @@
     color: red;
 }
 .Card p:nth-child(3)::after {
-    content: ' €';
+    content: " €";
 }
 
 .Card:hover {

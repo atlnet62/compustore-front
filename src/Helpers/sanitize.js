@@ -1,10 +1,9 @@
 export const validate = (type, inputs) => {
-    
     if (type === "signin") {
         const inputsSanitized = {
-            email : inputs.email.trim(),
-            password : inputs.password.trim(),
-        }
+            email: inputs.email.trim(),
+            password: inputs.password.trim(),
+        };
         return inputsSanitized;
     }
 
